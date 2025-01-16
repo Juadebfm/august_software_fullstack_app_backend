@@ -1,4 +1,4 @@
-// Bring packages installed
+// Bring down packages installed
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
