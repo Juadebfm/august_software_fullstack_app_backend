@@ -17,13 +17,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/^\d{10,15}$/, "Phone number must be 10 to 15 digits"],
+    match: [/^\d{10,15}$/, "Phone number must be 10 to 15 digits"], //optional
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    match: [/^\S+@\S+\.\S+$/, "Phone number must be 10 to 15 digits"],
+    match: [/^\S+@\S+\.\S+$/, "Email must be valid with proper email format"],
   },
 });
 
