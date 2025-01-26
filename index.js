@@ -16,9 +16,15 @@ app.use(express.json());
 // routes - This is where your entry point file i.e index maps the route/endpoint
 app.use("/api/auth", authRoutes);
 
+const url = process.env.MONGODB_URL;
+
+const options = {
+  serverSelectionTimeoutMS: 30000, // BufferMS
+};
+
 //Mongo db connection
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(url, options)
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -27,7 +33,7 @@ mongoose
   });
 
 // start node js server
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 0;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
