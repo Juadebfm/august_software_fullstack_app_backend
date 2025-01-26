@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true, // Must be provided
-    unique: true, //No duplicates
+    unique: true, //No duplicates // only one user can have a particular username per time --- "femi", "Femi", "FEMI"
   },
   password: {
     type: String,
@@ -17,13 +17,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/^\d{10,15}$/, "Phone number must be 10 to 15 digits"], //optional
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    match: [/^\S+@\S+\.\S+$/, "Email must be valid with proper email format"],
   },
 });
 
